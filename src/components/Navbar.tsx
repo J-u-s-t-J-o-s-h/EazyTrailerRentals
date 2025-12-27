@@ -21,7 +21,15 @@ export default function Navbar() {
             <div className="container mx-auto px-4 py-3 flex items-center justify-between">
 
                 {/* Logo */}
-                <Link href="/" className="relative w-32 h-12 md:w-40 md:h-16 block hover:opacity-80 transition-opacity">
+                {/* Logo */}
+                <Link
+                    href="/"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="relative w-32 h-12 md:w-40 md:h-16 block hover:opacity-80 transition-opacity"
+                >
                     <Image
                         src="/eazytrailer.svg"
                         alt="Eazy Trailer Rentals"

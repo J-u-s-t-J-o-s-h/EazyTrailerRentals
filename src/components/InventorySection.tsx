@@ -1,5 +1,6 @@
 import { Car, Package, Shovel, Truck, Check, AlertCircle } from 'lucide-react';
 import Image from 'next/image';
+import FadeIn from './FadeIn';
 
 const inventory = [
     {
@@ -62,56 +63,56 @@ export default function InventorySection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {inventory.map((item) => (
-                        <div
-                            key={item.id}
-                            className={`relative group bg-neutral-900 border ${item.featured ? 'border-gold-500 shadow-[0_0_30px_rgba(245,158,11,0.15)] scale-[1.02]' : 'border-neutral-800'} rounded-xl overflow-hidden hover:border-gold-500/50 transition-all duration-300 flex flex-col`}
-                        >
-                            {item.featured && (
-                                <div className="absolute top-0 right-0 bg-gold-500 text-black text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-bl-lg z-20">
-                                    Most Popular
-                                </div>
-                            )}
+                    {inventory.map((item, index) => (
+                        <FadeIn key={item.id} delay={index * 0.1} className="h-full">
+                            <div
+                                className={`flex flex-col h-full relative group bg-neutral-900 border ${item.featured ? 'border-gold-500 shadow-[0_0_30px_rgba(245,158,11,0.15)] scale-[1.02]' : 'border-neutral-800'} rounded-xl overflow-hidden hover:border-gold-500/50 transition-all duration-300`}
+                            >
+                                {item.featured && (
+                                    <div className="absolute top-0 right-0 bg-gold-500 text-black text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-bl-lg z-20">
+                                        Most Popular
+                                    </div>
+                                )}
 
-                            <div className="h-48 bg-neutral-800 relative group-hover:bg-neutral-800/80 transition-colors flex items-center justify-center overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-80" />
-                                <item.icon className={`w-16 h-16 ${item.featured ? 'text-gold-500' : 'text-neutral-600'} group-hover:scale-110 transition-transform duration-500 relative z-10`} />
-                            </div>
-
-                            <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="font-display text-xl font-bold text-white mb-2 uppercase">{item.title}</h3>
-                                <div className="flex items-baseline gap-1 mb-6">
-                                    {/* If there's a price, show it, else show the text (Call for Rate) */}
-                                    {item.price.startsWith('$') ? (
-                                        <>
-                                            <span className="text-gold-500 font-bold text-2xl">{item.price}</span>
-                                            <span className="text-neutral-500 text-sm">/ day</span>
-                                        </>
-                                    ) : (
-                                        <span className="text-gold-500 font-bold text-lg">{item.price}</span>
-                                    )}
+                                <div className="h-48 bg-neutral-800 relative group-hover:bg-neutral-800/80 transition-colors flex items-center justify-center overflow-hidden flex-shrink-0">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-80" />
+                                    <item.icon className={`w-16 h-16 ${item.featured ? 'text-gold-500' : 'text-neutral-600'} group-hover:scale-110 transition-transform duration-500 relative z-10`} />
                                 </div>
 
-                                <ul className="space-y-3 mb-8 flex-grow">
-                                    {item.specs.map((spec, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-sm text-neutral-400">
-                                            <Check className="w-4 h-4 text-gold-500/50" />
-                                            {spec}
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="p-6 flex flex-col flex-grow">
+                                    <h3 className="font-display text-xl font-bold text-white mb-2 uppercase">{item.title}</h3>
+                                    <div className="flex items-baseline gap-1 mb-6">
+                                        {item.price.startsWith('$') ? (
+                                            <>
+                                                <span className="text-gold-500 font-bold text-2xl">{item.price}</span>
+                                                <span className="text-neutral-500 text-sm">/ day</span>
+                                            </>
+                                        ) : (
+                                            <span className="text-gold-500 font-bold text-lg">{item.price}</span>
+                                        )}
+                                    </div>
 
-                                <a
-                                    href="#reservation"
-                                    className={`w-full py-3 px-4 rounded text-center font-bold uppercase tracking-wide text-sm transition-colors ${item.featured
-                                        ? 'bg-gold-500 text-black hover:bg-gold-400'
-                                        : 'bg-neutral-800 text-white hover:bg-neutral-700'
-                                        }`}
-                                >
-                                    Reserve Now
-                                </a>
+                                    <ul className="space-y-3 mb-8 flex-grow">
+                                        {item.specs.map((spec, i) => (
+                                            <li key={i} className="flex items-center gap-2 text-sm text-neutral-400">
+                                                <Check className="w-4 h-4 text-gold-500/50" />
+                                                {spec}
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <a
+                                        href="#reservation"
+                                        className={`mt-auto w-full py-3 px-4 rounded text-center font-bold uppercase tracking-wide text-sm transition-colors ${item.featured
+                                                ? 'bg-gold-500 text-black hover:bg-gold-400'
+                                                : 'bg-neutral-800 text-white hover:bg-neutral-700'
+                                            }`}
+                                    >
+                                        Reserve Now
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     ))}
                 </div>
             </div>
