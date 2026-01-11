@@ -1,0 +1,22 @@
+.heroLogoImage {
+    filter: drop-shadow(0 0 8px rgba(139, 0, 0, 0.8)) drop-shadow(0 0 16px rgba(139, 0, 0, 0.6)) drop-shadow(0 0 24px rgba(139, 0, 0, 0.4)) drop-shadow(0 0 32px rgba(139, 0, 0, 0.3));
+    padding-right: 0;
+    padding-left: 0;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .heroLogoImage {
+        padding-right: 66px;
+        padding-left: 44px;
+        height: 462px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .heroLogoImage {
+        padding-right: 132px;
+        padding-left: 89px;
+        height: 925px;
+    }
+}

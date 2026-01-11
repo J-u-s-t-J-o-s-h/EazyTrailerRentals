@@ -1,95 +1,92 @@
-import { Star, Facebook } from 'lucide-react';
-import FadeIn from './FadeIn';
+'use client';
 
-const reviews = [
-    {
-        name: "James D.",
-        role: "Local Business Owner",
-        content: "Erick made the rental process incredibly easy. The 20ft equipment trailer was in perfect condition and handled my skid steer with no issues. Highly recommend!",
-        stars: 5,
-    },
-    {
-        name: "Sarah M.",
-        role: "Homeowner",
-        content: "Needed a utility trailer last minute for a weekend cleanup. fast response, great price, and super friendly service. Will definitely rent again.",
-        stars: 5,
-    },
-    {
-        name: "Mike T.",
-        role: "Contractor",
-        content: "Best trailer rental in the CSRA. Equipment is always well-maintained and the 7-day rates are unbeatable. Good honest people to do business with.",
-        stars: 5,
-    }
-];
+import Image from 'next/image';
+import { Star, Facebook } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function TestimonialsSection() {
     return (
-        <section className="bg-neutral-900 py-20 border-t border-neutral-800" id="reviews">
-            <div className="container mx-auto px-4">
+        <section className="bg-transparent py-20 border-t border-neutral-800 relative overflow-hidden" id="reviews">
+            {/* Global Honeycomb Background */}
+            {/* Background Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,0,0,0.06),transparent_70%)]" />
 
-                <div className="text-center mb-16">
-                    <FadeIn>
-                        <div className="flex items-center justify-center gap-2 mb-4">
-                            <div className="flex text-gold-500">
-                                <Star className="fill-current w-6 h-6" />
-                                <Star className="fill-current w-6 h-6" />
-                                <Star className="fill-current w-6 h-6" />
-                                <Star className="fill-current w-6 h-6" />
-                                <Star className="fill-current w-6 h-6" />
-                            </div>
-                        </div>
-                        <h2 className="font-display text-3xl md:text-5xl font-bold text-white uppercase tracking-wide">
-                            Trusted by the <span className="text-gold-500">CSRA</span>
-                        </h2>
-                        <p className="text-neutral-400 mt-4 text-lg">
-                            See why our neighbors rate us 5 Stars on Google and Facebook.
-                        </p>
-                    </FadeIn>
-                </div>
+            <div className="container mx-auto px-4 relative z-10">
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    {reviews.map((review, index) => (
-                        <FadeIn key={index} delay={index * 0.1}>
-                            <div className="bg-black/50 border border-neutral-800 p-8 rounded-xl relative h-full">
-                                <div className="absolute top-0 right-0 p-4 opacity-10">
-                                    <Star className="w-24 h-24 text-gold-500 fill-current" />
-                                </div>
-                                <div className="flex gap-1 text-gold-500 mb-4">
-                                    {[...Array(review.stars)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 fill-current" />
-                                    ))}
-                                </div>
-                                <p className="text-neutral-300 italic mb-6 leading-relaxed relative z-10">
-                                    "{review.content}"
-                                </p>
-                                <div>
-                                    <h4 className="font-display text-white font-bold uppercase tracking-wide">{review.name}</h4>
-                                    <p className="text-neutral-500 text-sm">{review.role}</p>
-                                </div>
-                            </div>
-                        </FadeIn>
-                    ))}
-                </div>
-
-                <FadeIn direction="up" delay={0.4}>
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                        <a
-                            href="#"
-                            className="flex items-center gap-3 bg-[#1877F2] hover:bg-[#166fe5] text-white px-8 py-4 rounded font-bold transition-all hover:-translate-y-1 shadow-lg shadow-blue-900/20"
-                        >
-                            <Facebook className="w-6 h-6 fill-current" />
-                            Join us on Facebook
-                        </a>
-
-                        <div className="flex items-center gap-4 bg-white px-8 py-3 rounded text-black font-bold">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-6" />
-                            <div className="flex flex-col text-xs leading-none">
-                                <span>5.0 Customer Rating</span>
-                                <span className="text-neutral-500 font-normal mt-1">Based on Google Reviews</span>
-                            </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-12"
+                >
+                    <div className="flex items-center justify-center gap-2 mb-4">
+                        <div className="flex text-yellow-500">
+                            <Star className="fill-current w-6 h-6" />
+                            <Star className="fill-current w-6 h-6" />
+                            <Star className="fill-current w-6 h-6" />
+                            <Star className="fill-current w-6 h-6" />
+                            <Star className="fill-current w-6 h-6" />
                         </div>
                     </div>
-                </FadeIn>
+                    <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-tight mb-4">
+                        Trusted by the <span className="text-yellow-500">CSRA</span>
+                    </h2>
+                    <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                        Building our reputation one rental at a time
+                    </p>
+
+                    {/* Coming Soon Card */}
+                    <div className="max-w-2xl mx-auto">
+                        <div className="bg-black/60 backdrop-blur-sm border-2 border-dashed border-yellow-500/30 rounded-xl p-12 md:p-16">
+                            <div className="flex items-center justify-center gap-2 mb-4">
+                                <Star className="w-8 h-8 text-yellow-500 fill-current" />
+                            </div>
+                            <h3 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight mb-3">
+                                Reviews Coming Soon
+                            </h3>
+                            <p className="text-neutral-400 text-base md:text-lg leading-relaxed mb-6">
+                                We're just getting started! Check back soon to see what our customers are saying about their rental experience.
+                            </p>
+                            <p className="text-neutral-500 text-sm">
+                                In the meantime, call us to hear directly from our satisfied customers in the CSRA.
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="flex flex-col md:flex-row items-center justify-center gap-6"
+                >
+                    <a
+                        href="https://www.facebook.com/binosmobiledetailing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 bg-[#1877F2] hover:bg-[#166fe5] text-white px-8 py-4 rounded-lg font-bold transition-all hover:-translate-y-1 hover:scale-105 shadow-lg shadow-blue-900/20"
+                    >
+                        <Facebook className="w-6 h-6 fill-current" />
+                        Follow us on Facebook
+                    </a>
+
+                    <div className="flex items-center gap-4 bg-white px-8 py-3 rounded-lg text-black font-bold shadow-lg">
+                        <Image 
+                            src="/google-logo.svg" 
+                            alt="Google" 
+                            width={74} 
+                            height={24} 
+                            className="h-6 w-auto" 
+                        />
+                        <div className="flex flex-col text-xs leading-none">
+                            <span>5.0 Customer Rating</span>
+                            <span className="text-neutral-500 font-normal mt-1">Based on Google Reviews</span>
+                        </div>
+                    </div>
+                </motion.div>
 
             </div>
         </section>
