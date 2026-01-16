@@ -1,10 +1,10 @@
 import Hero from '@/components/Hero';
+import InventorySection from '@/components/InventorySection';
+import RequirementsSection from '@/components/RequirementsSection';
 import HowItWorks from '@/components/HowItWorks';
 import TrustSection from '@/components/TrustSection';
-import InventorySection from '@/components/InventorySection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQ from '@/components/FAQ';
-import ReservationWidget from '@/components/ReservationWidget';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import SectionDivider from '@/components/SectionDivider';
@@ -14,17 +14,17 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <SectionDivider />
+      <InventorySection />
+      <SectionDivider />
+      <RequirementsSection />
+      <SectionDivider />
       <HowItWorks />
       <SectionDivider />
       <TrustSection />
       <SectionDivider />
-      <InventorySection />
-      <SectionDivider />
       <TestimonialsSection />
       <SectionDivider />
       <FAQ />
-      <SectionDivider />
-      <ReservationWidget />
       <SectionDivider />
       <CallToAction />
       <Footer />

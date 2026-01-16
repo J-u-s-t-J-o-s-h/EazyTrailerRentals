@@ -1,34 +1,6 @@
 'use client';
 
-import { MapPin, DollarSign, Clock, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const benefits = [
-    {
-        icon: MapPin,
-        title: "Locally Owned",
-        desc: "Proudly serving our neighbors in the CSRA with hometown service you can trust.",
-        color: 'red',
-    },
-    {
-        icon: DollarSign,
-        title: "Straightforward Pricing",
-        desc: "No hidden fees or surprises. Just honest rates that make sense.",
-        color: 'yellow',
-    },
-    {
-        icon: Clock,
-        title: "Flexible Schedule",
-        desc: "Easy pickup & drop-off times that work around your schedule.",
-        color: 'red',
-    },
-    {
-        icon: ShieldCheck,
-        title: "Reliable Equipment",
-        desc: "Well-maintained trailers ready to get the job done right.",
-        color: 'yellow',
-    },
-];
 
 export default function TrustSection() {
     return (
@@ -39,55 +11,81 @@ export default function TrustSection() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,0,0,0.06),transparent_70%)]" />
 
             <div className="container mx-auto px-4 relative z-10">
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16 md:mb-20"
-                >
-                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tight mb-3">
-                        Why Choose <span className="text-yellow-500">Us</span>
-                    </h2>
-                    <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto">
-                        Trusted trailer rentals built on reliability and service
-                    </p>
-                </motion.div>
+                <div className="max-w-4xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center mb-12 md:mb-16"
+                    >
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tight mb-4">
+                            We're Your <span className="text-yellow-500">Neighbors</span>
+                        </h2>
+                    </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
-                    {benefits.map((item, index) => {
-                        const Icon = item.icon;
-                        const isRed = item.color === 'red';
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className="group"
-                            >
-                                <div className="bg-black/60 backdrop-blur-sm border border-neutral-800 rounded-lg p-6 md:p-8 h-full hover:border-yellow-500/50 hover:bg-black/80 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-500/10 hover:-translate-y-1">
-                                    {/* Icon */}
-                                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-lg mb-6 ${isRed
-                                        ? 'bg-red-500/20 border-2 border-red-500/30 group-hover:bg-red-500/30 group-hover:border-red-500/50'
-                                        : 'bg-yellow-500/20 border-2 border-yellow-500/30 group-hover:bg-yellow-500/30 group-hover:border-yellow-500/50'
-                                        } transition-all duration-300`}>
-                                        <Icon className={`w-8 h-8 ${isRed ? 'text-red-500' : 'text-yellow-500'}`} />
-                                    </div>
+                    {/* Main Content - More Narrative Style */}
+                    <div className="space-y-8 md:space-y-10">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="bg-black/40 border-l-4 border-red-500 pl-6 md:pl-8 py-6 md:py-8"
+                        >
+                            <h3 className="text-white font-display font-bold text-xl md:text-2xl uppercase mb-3">
+                                Local, Not Corporate
+                            </h3>
+                            <p className="text-neutral-300 text-base md:text-lg leading-relaxed">
+                                We're based right here in the CSRA, serving Augusta, Evans, Martinez, Grovetown, and the surrounding areas. When you call, you're talking to someone who actually owns the business, not a call center. We know the area, we know what works, and we're here to help.
+                            </p>
+                        </motion.div>
 
-                                    {/* Content */}
-                                    <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-3 uppercase tracking-wide">
-                                        {item.title}
-                                    </h3>
-                                    <p className="font-body text-neutral-300 text-base leading-relaxed">
-                                        {item.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="bg-black/40 border-l-4 border-yellow-500 pl-6 md:pl-8 py-6 md:py-8"
+                        >
+                            <h3 className="text-white font-display font-bold text-xl md:text-2xl uppercase mb-3">
+                                No Surprises, Just Straight Talk
+                            </h3>
+                            <p className="text-neutral-300 text-base md:text-lg leading-relaxed">
+                                What you see is what you get. We'll tell you the rate upfront, no hidden fees, no last-minute charges, no fine print nonsense. Just honest pricing for a good trailer that's ready to work.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="bg-black/40 border-l-4 border-red-500 pl-6 md:pl-8 py-6 md:py-8"
+                        >
+                            <h3 className="text-white font-display font-bold text-xl md:text-2xl uppercase mb-3">
+                                We Work Around Your Schedule
+                            </h3>
+                            <p className="text-neutral-300 text-base md:text-lg leading-relaxed">
+                                Need a trailer Saturday morning? No problem. Working late and need to drop it off after hours? We'll figure it out. We're available 24/7 by appointment because we know your job doesn't always fit into business hours.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="bg-black/40 border-l-4 border-yellow-500 pl-6 md:pl-8 py-6 md:py-8"
+                        >
+                            <h3 className="text-white font-display font-bold text-xl md:text-2xl uppercase mb-3">
+                                Trailers That Actually Work
+                            </h3>
+                            <p className="text-neutral-300 text-base md:text-lg leading-relaxed">
+                                We keep our trailers in good shape. Regular maintenance, working lights, solid hitches, the basics that matter. When you rent from us, you're getting equipment that's ready to do the job, not something that's going to give you headaches on the road.
+                            </p>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

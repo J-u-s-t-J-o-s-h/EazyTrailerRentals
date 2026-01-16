@@ -132,23 +132,23 @@ export default function InventorySection() {
                                     </div>
 
                                     {/* CTA Buttons */}
-                                    <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                                    <div className="flex flex-col gap-3 mt-auto">
                                         <a
                                             href={PHONE_TEL}
-                                            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-bold uppercase tracking-wide text-sm transition-all ${item.featured
-                                                ? 'bg-red-500 text-white hover:bg-red-400 hover:scale-105'
-                                                : 'bg-neutral-800 text-white hover:bg-neutral-700'
+                                            className={`w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg font-display font-bold uppercase tracking-wide text-base transition-all transform hover:scale-105 ${item.featured
+                                                ? 'bg-red-500 text-white hover:bg-red-400 shadow-lg shadow-red-500/30'
+                                                : 'bg-yellow-500 text-black hover:bg-yellow-400 shadow-lg shadow-yellow-500/30'
                                                 }`}
                                         >
-                                            <Phone className="w-4 h-4" />
-                                            Call Now
+                                            <Phone className="w-5 h-5" />
+                                            Book Now
                                         </a>
                                         <a
                                             href={PHONE_SMS}
-                                            className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-bold uppercase tracking-wide text-sm bg-black/60 border-2 border-yellow-500/50 text-white hover:border-yellow-500 hover:bg-black/80 transition-all"
+                                            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-display font-bold uppercase tracking-wide text-sm bg-black/60 border-2 border-yellow-500/50 text-white hover:border-yellow-500 hover:bg-black/80 transition-all"
                                         >
                                             <MessageSquare className="w-4 h-4" />
-                                            Text
+                                            Text to Reserve
                                         </a>
                                     </div>
                                 </div>
