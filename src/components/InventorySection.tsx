@@ -20,7 +20,7 @@ const inventory = [
         title: "18ft Car Hauler",
         specs: ["Dual Axle", "7,000lb Capacity", "13k lb Winch", "Straps Included"],
         price: "Call for Rate",
-        image: "/18ft-trailer.jpeg",
+        image: "/20ft-trailer.jpeg",
         featured: true,
         category: "Car Hauler"
     },
@@ -29,7 +29,7 @@ const inventory = [
         title: "20ft Equipment Trailer",
         specs: ["Dual Axle", "10,000lb Capacity", "12k lb Winch", "Straps Included"],
         price: "Call for Rate",
-        image: "/20ft-trailer.jpeg",
+        image: "/18ft-trailer.jpeg",
         featured: false,
         category: "Equipment"
     }
